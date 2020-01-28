@@ -9,7 +9,7 @@ MIN = 0.1.0
 
 all:
 	$(CC) $(CFLAGS) libco.c -c -Wall -fpic -DLIBCO_MP
-	$(CC) $(CFLAGS) $(LDFLAGS) libco.o -shared -Wl,-soname,libco.so.$(MAJ) -o libco.so.$(MIN)
+	$(CC) $(CFLAGS) $(LDFLAGS) libco.o -shared -Wl,-install_name,libco.so.$(MAJ) -o libco.so.$(MIN)
 	$(AR) rcs libco.a libco.o
 	sed -e "s|@prefix@|$(PREFIX)|g" \
 	    -e "s|@libdir@|$(PREFIX)/$(LIBDIR)|g" \
